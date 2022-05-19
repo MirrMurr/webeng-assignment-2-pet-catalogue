@@ -3,28 +3,29 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HeaderComponent } from './components/header/header.component';
 import { PetFormComponent } from './components/pet-form/pet-form.component';
 import { AboutPageComponent } from './pages/about-page/about-page.component';
 import { PetsPageComponent } from './pages/pets-page/pets-page.component';
 import { MainPageComponent } from './pages/main-page/main-page.component';
 import { ButtonComponent } from './components/button/button.component';
+import { LayoutComponent } from './layout/layout/layout.component';
+import { NavbarComponent } from './layout/navbar/navbar.component';
+import { FooterComponent } from './layout/footer/footer.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent,
     PetFormComponent,
     AboutPageComponent,
     PetsPageComponent,
     MainPageComponent,
-    ButtonComponent
+    ButtonComponent,
+    LayoutComponent,
+    NavbarComponent,
+    FooterComponent,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule
-  ],
+  imports: [BrowserModule, AppRoutingModule],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

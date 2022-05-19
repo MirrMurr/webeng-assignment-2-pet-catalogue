@@ -1,0 +1,13 @@
+<div class="layout">
+  <div class="header-container">
+    <app-navbar></app-navbar>
+  </div>
+  <div class="main">
+    <div class="content-container">
+      <ng-content></ng-content>
+    </div>
+    <div class="footer-container">
+      <app-footer [ngStyle]="{ width: '100%' }"></app-footer>
+    </div>
+  </div>
+</div>

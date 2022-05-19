@@ -1,5 +1,10 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
+export enum ButtonStyle {
+  Primary = 'primary',
+  Secondary = 'secondary',
+}
+
 @Component({
   selector: 'app-button',
   templateUrl: './button.component.html',
@@ -7,17 +12,16 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 })
 export class ButtonComponent implements OnInit {
   @Input() label!: string;
-  @Input() type!: string;
-  @Input() color!: string;
+  @Input() type!: string; //ButtonStyle;
 
-  @Output() onClick = new EventEmitter();
+  @Output() onClickEmitter = new EventEmitter();
 
   constructor() {}
 
   ngOnInit(): void {}
 
-  onAddPet() {
-    console.log('add');
-    this.onClick.emit();
+  onClick() {
+    console.log('click');
+    this.onClickEmitter.emit();
   }
 }

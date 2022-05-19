@@ -1,0 +1,11 @@
+@import "../../../assets/variables.scss";
+
+.footer {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  justify-content: center;
+  min-width: 100%;
+  font-style: italic;
+  color: $white-egg-shade-dark;
+}

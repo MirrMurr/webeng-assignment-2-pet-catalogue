@@ -1,0 +1,25 @@
+ul.navbar {
+  display: flex;
+  align-items: center;
+  height: 100%;
+
+  & > a > li {
+    display: flex;
+    align-items: center;
+    padding: 10px 20px;
+    height: 100%;
+  }
+
+  & > a {
+    height: 100%;
+    color: white;
+    text-decoration: none;
+    transition: 0.25s;
+
+    &:hover {
+      color: black;
+      background-color: white;
+      font-size: 1.2rem;
+    }
+  }
+}
