@@ -1,3 +1,10 @@
+@import "../../../assets/variables.scss";
+
+.logo-container {
+  height: 32px;
+  width: 32px;
+}
+
 ul.navbar {
   display: flex;
   align-items: center;
@@ -20,6 +27,10 @@ ul.navbar {
       color: black;
       background-color: white;
       font-size: 1.2rem;
+    }
+
+    &.active {
+      color: $primary-color-red;
     }
   }
 }

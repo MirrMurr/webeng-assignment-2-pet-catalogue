@@ -12,6 +12,7 @@ import { LayoutComponent } from './layout/layout/layout.component';
 import { NavbarComponent } from './layout/navbar/navbar.component';
 import { FooterComponent } from './layout/footer/footer.component';
 import { LogoComponent } from './components/logo/logo.component';
+import { AppVersionComponent } from './components/app-version/app-version.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { LogoComponent } from './components/logo/logo.component';
     NavbarComponent,
     FooterComponent,
     LogoComponent,
+    AppVersionComponent,
   ],
   imports: [BrowserModule, AppRoutingModule],
   providers: [],

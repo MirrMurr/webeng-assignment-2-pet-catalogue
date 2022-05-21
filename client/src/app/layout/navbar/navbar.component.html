@@ -1,13 +1,15 @@
 <ul class="navbar">
-  <a href="/">
+  <a routerLink="/" routerLinkActive="active">
     <li>
-      <app-logo></app-logo>
+      <div class="logo-container">
+        <app-logo></app-logo>
+      </div>
     </li>
   </a>
-  <a href="/pets">
+  <a routerLink="/pets" routerLinkActive="active">
     <li>My pets</li>
   </a>
-  <a href="/about">
+  <a routerLink="/about" routerLinkActive="active">
     <li>About</li>
   </a>
 </ul>

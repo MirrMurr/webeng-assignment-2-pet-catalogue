@@ -30,6 +30,13 @@ body {
   border-radius: 5px;
 }
 
+.page-title {
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  width: 100%;
+  border-bottom: 1px solid $white-egg-shade-dark;
+}
+
 .btn-block {
   display: block;
   width: 100%;

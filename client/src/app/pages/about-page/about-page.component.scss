@@ -1,0 +1,42 @@
+pre {
+  font-weight: 700;
+}
+
+.author-details {
+  width: 70%;
+  max-width: 550px;
+  font-size: 18px;
+  margin: 0 auto;
+}
+
+.author-info {
+  display: flex;
+  justify-content: space-between;
+}
+
+.author-profile-pic-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 3rem auto;
+
+  & > img {
+    width: 70%;
+    max-width: 400px;
+    height: auto;
+    border-radius: 14px;
+    margin: 0 auto;
+  }
+}
+.app-version-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@media only screen and (max-width: 750px) {
+  .author-info {
+    display: block;
+    margin: 2rem 0;
+  }
+}

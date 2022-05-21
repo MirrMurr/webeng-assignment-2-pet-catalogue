@@ -1,0 +1,15 @@
+@import "../../../assets/variables.scss";
+
+.logo-container {
+  width: 64px;
+  height: 64px;
+}
+
+.greeting-header {
+  display: flex;
+  align-items: center;
+  justify-content: baseline;
+  gap: 1rem;
+  font-size: 32px;
+  color: $primary-color-red;
+}
