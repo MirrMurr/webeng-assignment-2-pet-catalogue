@@ -11,6 +11,7 @@ import { ButtonComponent } from './components/button/button.component';
 import { LayoutComponent } from './layout/layout/layout.component';
 import { NavbarComponent } from './layout/navbar/navbar.component';
 import { FooterComponent } from './layout/footer/footer.component';
+import { LogoComponent } from './components/logo/logo.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { FooterComponent } from './layout/footer/footer.component';
     LayoutComponent,
     NavbarComponent,
     FooterComponent,
+    LogoComponent,
   ],
   imports: [BrowserModule, AppRoutingModule],
   providers: [],
