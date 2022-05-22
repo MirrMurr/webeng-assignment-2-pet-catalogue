@@ -1,4 +1,6 @@
-export const PETS = [
+import { Pet } from './models/Pet';
+
+export const PETS: Pet[] = [
   {
     id: 1,
     name: 'Liza',

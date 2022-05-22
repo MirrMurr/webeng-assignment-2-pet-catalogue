@@ -2,11 +2,19 @@ pre {
   font-weight: 700;
 }
 
-.author-details {
-  width: 70%;
+.author-container {
+  display: flex;
+  flex-flow: column;
+  justify-content: space-between;
+  align-items: center;
+  margin: 3rem auto;
+  width: 50%;
   max-width: 550px;
+}
+
+.author-details {
+  width: 100%;
   font-size: 18px;
-  margin: 0 auto;
 }
 
 .author-info {
@@ -19,12 +27,13 @@ pre {
   justify-content: center;
   align-items: center;
   margin: 3rem auto;
+  width: 230px;
 
   & > img {
-    width: 70%;
+    width: 100%;
     max-width: 400px;
     height: auto;
-    border-radius: 14px;
+    border-radius: 50%;
     margin: 0 auto;
   }
 }

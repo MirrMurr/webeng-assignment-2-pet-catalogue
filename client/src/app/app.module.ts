@@ -13,6 +13,9 @@ import { NavbarComponent } from './layout/navbar/navbar.component';
 import { FooterComponent } from './layout/footer/footer.component';
 import { LogoComponent } from './components/logo/logo.component';
 import { AppVersionComponent } from './components/app-version/app-version.component';
+import { PetListComponent } from './components/pet-list/pet-list.component';
+import { PetCardComponent } from './components/pet-card/pet-card.component';
+import { MatTableModule } from '@angular/material/table';
 
 @NgModule({
   declarations: [
@@ -27,8 +30,10 @@ import { AppVersionComponent } from './components/app-version/app-version.compon
     FooterComponent,
     LogoComponent,
     AppVersionComponent,
+    PetListComponent,
+    PetCardComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule],
+  imports: [BrowserModule, AppRoutingModule, MatTableModule],
   providers: [],
   bootstrap: [AppComponent],
 })
