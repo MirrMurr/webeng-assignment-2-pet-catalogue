@@ -1,1 +1,42 @@
-<p>pet-form works!</p>
+<div class="pet-form-container">
+  <form action="" novalidate>
+    <div class="custom-form-item">
+      <label for="name">Name</label>
+      <input
+        id="name"
+        type="text"
+        [disabled]="mode === 'View'"
+        value="{{ pet?.name }}"
+      />
+    </div>
+    <div class="custom-form-item">
+      <label for="species">Species</label>
+      <input
+        id="species"
+        type="text"
+        [disabled]="mode === 'View'"
+        value="{{ pet?.species }}"
+      />
+    </div>
+    <div class="custom-form-item">
+      <label for="dateOfBirth">Date of birth</label>
+      <input
+        id="dateOfBirth"
+        type="date"
+        [disabled]="mode === 'View'"
+        value="{{ pet?.dateOfBirth }}"
+      />
+    </div>
+    <div class="custom-form-item">
+      <label for="note">Note</label>
+      <textarea
+        name="note"
+        id="note"
+        cols="30"
+        rows="10"
+        [disabled]="mode === 'View'"
+        [value]="pet?.note"
+      ></textarea>
+    </div>
+  </form>
+</div>

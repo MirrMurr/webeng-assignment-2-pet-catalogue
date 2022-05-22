@@ -1,13 +1,24 @@
 <div class="pet-card-container">
   <div class="pet-card">
-    <h3 class="pet-name">{{ pet.name }}</h3>
+    <h3 class="pet-name">
+      {{ pet.name }} <span *ngIf="!!pet.dateOfDeath">✝</span>
+    </h3>
     <div>
       <i>{{ pet.note }}</i>
     </div>
     <div>Born: {{ pet.dateOfBirth }}</div>
     <div *ngIf="!!pet.dateOfDeath">Passed away: {{ pet.dateOfDeath }}</div>
   </div>
-  <div class="edit-pet-button-container">
-    <app-button type="secondary" label="Edit"></app-button>
+  <div class="pet-action-buttons-container">
+    <app-button
+      type="secondary"
+      label="View"
+      [routerLink]="['/pets', pet.id]"
+    ></app-button>
+    <app-button
+      type="secondary"
+      label="Edit"
+      [routerLink]="['/pets', pet.id, 'edit']"
+    ></app-button>
   </div>
 </div>

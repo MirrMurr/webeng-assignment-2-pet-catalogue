@@ -16,6 +16,9 @@ import { AppVersionComponent } from './components/app-version/app-version.compon
 import { PetListComponent } from './components/pet-list/pet-list.component';
 import { PetCardComponent } from './components/pet-card/pet-card.component';
 import { MatTableModule } from '@angular/material/table';
+import { PetDetailsPageComponent } from './pages/pet-details-page/pet-details-page.component';
+import { PetEditPageComponent } from './pages/pet-edit-page/pet-edit-page.component';
+import { PetCreatePageComponent } from './pages/pet-create-page/pet-create-page.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +35,9 @@ import { MatTableModule } from '@angular/material/table';
     AppVersionComponent,
     PetListComponent,
     PetCardComponent,
+    PetDetailsPageComponent,
+    PetEditPageComponent,
+    PetCreatePageComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, MatTableModule],
   providers: [],

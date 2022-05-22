@@ -13,4 +13,8 @@ export class PetService {
   public getAllPets(): Pet[] {
     return this.pets;
   }
+
+  public getPetWithId(id: number): Pet | undefined {
+    return this.pets.find((pet) => pet.id === id);
+  }
 }
