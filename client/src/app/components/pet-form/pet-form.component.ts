@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Pet } from 'src/app/models/Pet';
 
 // export enum CRUDMode {
@@ -15,8 +15,13 @@ import { Pet } from 'src/app/models/Pet';
 export class PetFormComponent implements OnInit {
   @Input() mode: string = 'Create';
   @Input() pet: Pet;
+  @Output() onSubmitPet: EventEmitter<Pet> = new EventEmitter<Pet>();
 
   constructor() {}
 
   ngOnInit(): void {}
+
+  onSubmit(values: any) {
+    this.onSubmitPet.emit(this.pet);
+  }
 }

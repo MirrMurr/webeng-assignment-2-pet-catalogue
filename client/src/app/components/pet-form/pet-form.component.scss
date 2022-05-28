@@ -1,0 +1,19 @@
+.is-valid {
+  // border: 1px solid green;
+}
+
+.is-invalid {
+  border: 2px solid red;
+
+  &::after {
+    width: 100px;
+    height: 50px;
+    background-color: red;
+    color: red;
+    content: 'alma';
+  }
+}
+
+.error-message {
+  color: red;
+}

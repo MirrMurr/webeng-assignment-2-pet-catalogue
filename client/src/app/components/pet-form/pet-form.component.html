@@ -1,42 +1,54 @@
 <div class="pet-form-container">
-  <form action="" novalidate>
+  <form (ngSubmit)="onSubmit(petForm)" #petForm="ngForm">
     <div class="custom-form-item">
       <label for="name">Name</label>
       <input
-        id="name"
+        [(ngModel)]="pet.name"
+        name="name"
         type="text"
         [disabled]="mode === 'View'"
-        value="{{ pet?.name }}"
+        required
+        #name="ngModel"
+        [class.is-invalid]="name.invalid && (name.dirty || name.touched)"
+        [class.is-valid]="name.valid"
       />
+      <div class="error-message" *ngIf="name.invalid">nemjo</div>
+      <!-- <div
+        class="invalid-feedback"
+        *ngIf="name.invalid && name.errors.minlength"
+      >
+        A recipe name is at least 3 characters long!
+      </div> -->
     </div>
     <div class="custom-form-item">
       <label for="species">Species</label>
       <input
-        id="species"
+        [(ngModel)]="pet.species"
+        name="species"
         type="text"
         [disabled]="mode === 'View'"
-        value="{{ pet?.species }}"
+        required
       />
     </div>
     <div class="custom-form-item">
       <label for="dateOfBirth">Date of birth</label>
       <input
-        id="dateOfBirth"
+        [(ngModel)]="pet.dateOfBirth"
+        name="dateOfBirth"
         type="date"
         [disabled]="mode === 'View'"
-        value="{{ pet?.dateOfBirth }}"
       />
     </div>
     <div class="custom-form-item">
       <label for="note">Note</label>
       <textarea
+        [(ngModel)]="pet.note"
         name="note"
-        id="note"
         cols="30"
         rows="10"
         [disabled]="mode === 'View'"
-        [value]="pet?.note"
       ></textarea>
     </div>
+    <app-button type="primary" label="Save"></app-button>
   </form>
 </div>

@@ -19,6 +19,7 @@ import { MatTableModule } from '@angular/material/table';
 import { PetDetailsPageComponent } from './pages/pet-details-page/pet-details-page.component';
 import { PetEditPageComponent } from './pages/pet-edit-page/pet-edit-page.component';
 import { PetCreatePageComponent } from './pages/pet-create-page/pet-create-page.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,7 @@ import { PetCreatePageComponent } from './pages/pet-create-page/pet-create-page.
     PetEditPageComponent,
     PetCreatePageComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, MatTableModule],
+  imports: [BrowserModule, AppRoutingModule, MatTableModule, FormsModule],
   providers: [],
   bootstrap: [AppComponent],
 })
