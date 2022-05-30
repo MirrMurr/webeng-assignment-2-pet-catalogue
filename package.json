@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "concurrently 'npm start --prefix client' 'cd server && php artisan serve --port=8080'",
     "start": "npm run dev",
-    "clean": "rm -R ./node_modules client/node_modules server/vendor/"
+    "clean": "rm -R ./node_modules client/node_modules client/angular/cache server/vendor/"
   },
   "keywords": [],
   "author": "",
