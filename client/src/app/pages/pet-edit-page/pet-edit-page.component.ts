@@ -33,7 +33,12 @@ export class PetEditPageComponent implements OnInit {
 
   updatePet(pet: Pet) {
     this.petService.updatePet(pet).subscribe(() => {
-      console.log('Success');
+      this.router.navigate(['/pets']);
+    });
+  }
+
+  deletePet(id: number) {
+    this.petService.deletePet(id).subscribe(() => {
       this.router.navigate(['/pets']);
     });
   }

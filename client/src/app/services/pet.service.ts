@@ -47,7 +47,7 @@ export class PetService {
     return this.http.patch<Pet>(`${this.backendUrl}/pets/${pet.id}`, pet);
   }
 
-  public deletePet(id: number) {
-    this.http.delete<Pet>(`${this.backendUrl}/pets/${id}`);
+  public deletePet(id: number): Observable<any> {
+    return this.http.delete<any>(`${this.backendUrl}/pets/${id}`);
   }
 }

@@ -21,6 +21,7 @@ export class PetFormComponent implements OnInit {
   @Input() loading: boolean = false;
 
   @Output() onSubmitPet: EventEmitter<Pet> = new EventEmitter<Pet>();
+  @Output() onDeletePet: EventEmitter<number> = new EventEmitter<number>();
 
   constructor(private location: Location) {
     if (this.mode === 'Create') {
@@ -40,5 +41,9 @@ export class PetFormComponent implements OnInit {
 
   back() {
     this.location.back();
+  }
+
+  handleDeletePet() {
+    this.onDeletePet.emit(this.pet.id!);
   }
 }

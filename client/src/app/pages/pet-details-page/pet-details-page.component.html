@@ -1,4 +1,9 @@
 <div class="pet-details-page-container">
   <h1 class="page-title">Pet details</h1>
-  <app-pet-form [mode]="'View'" [pet]="_pet" [loading]="loading"></app-pet-form>
+  <app-pet-form
+    [mode]="'View'"
+    [pet]="_pet"
+    [loading]="loading"
+    (onDeletePet)="deletePet($event)"
+  ></app-pet-form>
 </div>

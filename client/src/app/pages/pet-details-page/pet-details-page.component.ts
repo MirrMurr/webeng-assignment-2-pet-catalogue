@@ -30,4 +30,10 @@ export class PetDetailsPageComponent implements OnInit {
       });
     }
   }
+
+  deletePet(id: number) {
+    this.petService.deletePet(id).subscribe(() => {
+      this.router.navigate(['/pets']);
+    });
+  }
 }
