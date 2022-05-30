@@ -2,7 +2,7 @@
 
 ## Usage
 
-First, the installation, that will get the `concurently` package to run the client and the server side by side, after, it install both the client (NPM, Angular) and server (PHP, Laravel) dependencies.
+First, the installation, that will get the `concurrently` package to run the client and the server side by side, after, it install both the client (NPM, Angular) and server (PHP, Laravel) dependencies.
 
 NOTE: It uses a UNIX executable for the PHP installation. See top-level `package.json`.
 
