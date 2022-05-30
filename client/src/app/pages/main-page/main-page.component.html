@@ -1,13 +1,12 @@
 <div class="home-page">
-  <div class="greeting-header page-title">
-    <h1>Welcome!</h1>
-    <div class="logo-container">
-      <app-logo src="../../../assets/pet-catalogue-logo.png"></app-logo>
+  <div class="page-title">
+    <div class="greeting-header">
+      <h1>Welcome!</h1>
+      <div class="logo-container">
+        <app-logo src="../../../assets/pet-catalogue-logo.png"></app-logo>
+      </div>
     </div>
   </div>
-  <div>
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium, illum
-    quod. Inventore nemo fugit quibusdam cupiditate hic quod ipsum, facilis
-    porro esse? Quasi perferendis, sed veniam vel quo dolore nesciunt.
-  </div>
+  <div>Alive: {{ petStatistics?.alive }}</div>
+  <div>Passed away: {{ petStatistics?.passed }}</div>
 </div>

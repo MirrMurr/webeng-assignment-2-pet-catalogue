@@ -1,9 +1,11 @@
 <div class="pets-page">
-  <h1 class="page-title">Pet list 📋</h1>
-  <app-button
-    type="primary"
-    label="Add"
-    [routerLink]="['/pets/add']"
-  ></app-button>
+  <div class="page-title">
+    <h1>Pet list 📋</h1>
+    <app-button
+      type="primary"
+      label="Add new pet"
+      [routerLink]="['/pets/add']"
+    ></app-button>
+  </div>
   <app-pet-list></app-pet-list>
 </div>

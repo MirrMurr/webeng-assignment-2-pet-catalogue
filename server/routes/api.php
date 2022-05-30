@@ -18,4 +18,7 @@ use Illuminate\Support\Facades\Route;
 //     return $request->user();
 // });
 
-Route::resource('pets', PetController::class)->except([ 'edit', 'create' ]);;
+Route::resource('pets', PetController::class)->except([ 'edit', 'create' ]);
+Route::get('pet/alive', [PetController::class, 'getAlivePets']);
+Route::get('pet/passed', [PetController::class, 'getPassedPets']);
+Route::get('pet/statistics', [PetController::class, 'getPetStatistics']);

@@ -13,14 +13,9 @@ export class PetCreatePageComponent implements OnInit {
   ngOnInit(): void {}
 
   addPet(pet: Pet) {
-    this.petService
-      .addNewPet(pet)
-      .then(() => {
-        console.log('Success');
-        this.router.navigate(['/pets']);
-      })
-      .catch((e) => {
-        console.log('Error: ', e);
-      });
+    this.petService.addNewPet(pet).subscribe(() => {
+      console.log('Success');
+      this.router.navigate(['/pets']);
+    });
   }
 }

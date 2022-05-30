@@ -33,6 +33,9 @@ body {
 }
 
 .page-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   margin-bottom: 2rem;
   padding-bottom: 1rem;
   width: 100%;
@@ -73,4 +76,28 @@ body {
 .form-control-check input {
   flex: 2;
   height: 20px;
+}
+
+.custom-form-item {
+  display: flex;
+  flex-flow: column;
+  gap: 4px;
+  margin-bottom: 1.5rem;
+
+  & > label {
+    font-size: larger;
+    font-weight: bolder;
+  }
+
+  & > input, & *> input, & > textarea, & *> textarea {
+    border-radius: 10px;
+    outline: none;
+    border: 1px solid lightgray;
+    padding: 5px 10px;
+    resize: none;
+  }
+}
+
+.error-message {
+  color: red;
 }

@@ -12,16 +12,16 @@ export enum ButtonStyle {
 })
 export class ButtonComponent implements OnInit {
   @Input() label!: string;
-  @Input() type!: string; //ButtonStyle;
+  @Input() type!: 'primary' | 'secondary'; //ButtonStyle;
   @Input() disabled!: string | boolean; //ButtonStyle;
 
-  @Output() onClickEmitter = new EventEmitter();
+  @Output() onClick = new EventEmitter();
 
   constructor() {}
 
   ngOnInit(): void {}
 
-  onClick() {
-    this.onClickEmitter.emit();
+  onClickHandler() {
+    this.onClick.emit();
   }
 }

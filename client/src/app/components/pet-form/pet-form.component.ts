@@ -1,11 +1,6 @@
+import { Location } from '@angular/common';
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Pet } from 'src/app/models/Pet';
-
-// export enum CRUDMode {
-//   View = 'View',
-//   Edit = 'Edit',
-//   Create = 'Create',
-// }
 
 @Component({
   selector: 'app-pet-form',
@@ -21,13 +16,13 @@ export class PetFormComponent implements OnInit {
     note: '',
   };
 
-  @Input() mode: string = 'Create';
+  @Input() mode: 'View' | 'Edit' | 'Create' = 'Create';
   @Input() pet: Pet;
   @Input() loading: boolean = false;
 
   @Output() onSubmitPet: EventEmitter<Pet> = new EventEmitter<Pet>();
 
-  constructor() {
+  constructor(private location: Location) {
     if (this.mode === 'Create') {
       this.pet = this._pet;
     }
@@ -41,5 +36,9 @@ export class PetFormComponent implements OnInit {
     }
 
     this.onSubmitPet.emit(this.pet);
+  }
+
+  back() {
+    this.location.back();
   }
 }

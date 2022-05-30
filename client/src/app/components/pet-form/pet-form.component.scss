@@ -1,7 +1,8 @@
 .pet-form-container {
   height: 100%;
-  width: fit-content;
+  width: 50%;
   margin: 0 auto;
+  max-width: 550px;
 }
 
 .is-valid {
@@ -20,6 +21,13 @@
   }
 }
 
-.error-message {
-  color: red;
+.dates {
+  display: flex;
+  gap: 2rem;
+}
+
+.form-action-buttons {
+  display: flex;
+  gap: 10px;
+  justify-content: end;
 }

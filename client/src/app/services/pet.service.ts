@@ -1,42 +1,53 @@
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { PETS } from '../mock-pets';
+import { Observable } from 'rxjs';
 import { Pet } from '../models/Pet';
-import delay from '../utils/delay';
+import { PetStatistics } from '../models/pet-statistics';
+
+const httpOptions = {
+  headers: new HttpHeaders({
+    'Content-Type': 'application/json',
+    'X-Requested-With': 'XMLHttpRequest',
+  }),
+};
 
 @Injectable({
   providedIn: 'root',
 })
 export class PetService {
-  private pets: Pet[] = PETS;
+  private backendUrl: string = 'http://127.0.0.1:8080/api';
 
-  constructor() {}
+  constructor(private http: HttpClient) {}
 
-  public getAllPets(): Pet[] {
-    return this.pets;
+  public getAllAlivePets(): Observable<Pet[]> {
+    return this.http.get<Pet[]>(`${this.backendUrl}/pet/alive`);
   }
 
-  public async getPetWithId(id: number): Promise<Pet | undefined> {
-    await delay(2000);
-    const pet = this.pets.find((pet) => pet.id === id);
-    return pet;
+  public getAllPassedAwayPets(): Observable<Pet[]> {
+    return this.http.get<Pet[]>(`${this.backendUrl}/pet/passed`);
   }
 
-  public async addNewPet(pet: Pet): Promise<void> {
-    // TODO send request to backend
-    await delay(2000);
-    this.pets = [...this.pets, pet];
+  public getPetStatistics(): Observable<PetStatistics> {
+    return this.http.get<PetStatistics>(`${this.backendUrl}/pet/statistics`);
   }
 
-  public async updatePet(pet: Pet): Promise<void> {
-    // TODO send request to backend
-    await delay(2000);
-    const idx = this.pets.findIndex((p) => p.id === pet.id);
-    const original = this.pets[idx];
-    this.pets[idx] = { ...original, ...pet };
+  public getAllPets(): Observable<Pet[]> {
+    return this.http.get<Pet[]>(`${this.backendUrl}/pets`);
   }
 
-  public async deletePet(id: number): Promise<void> {
-    // TODO send request to backend
-    await delay(2000);
+  public getPetWithId(id: number): Observable<Pet | undefined> {
+    return this.http.get<Pet>(`${this.backendUrl}/pets/${id}`);
+  }
+
+  public addNewPet(pet: Pet): Observable<Pet> {
+    return this.http.post<Pet>(`${this.backendUrl}/pets`, pet);
+  }
+
+  public updatePet(pet: Pet): Observable<Pet> {
+    return this.http.patch<Pet>(`${this.backendUrl}/pets/${pet.id}`, pet);
+  }
+
+  public deletePet(id: number) {
+    this.http.delete<Pet>(`${this.backendUrl}/pets/${id}`);
   }
 }

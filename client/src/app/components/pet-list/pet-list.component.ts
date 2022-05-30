@@ -11,9 +11,9 @@ export class PetListComponent implements OnInit {
   pets: Pet[];
   // columnsToDisplay: string[] = ['name'];
 
-  constructor(private petService: PetService) {
-    this.pets = petService.getAllPets();
-  }
+  constructor(private petService: PetService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.petService.getAllPets().subscribe((pets) => (this.pets = pets));
+  }
 }

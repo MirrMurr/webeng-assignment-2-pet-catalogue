@@ -17,7 +17,7 @@
         class="error-message"
         *ngIf="name.invalid && (name.dirty || name.touched)"
       >
-        nemjo
+        The name is required!
       </div>
     </div>
     <div class="custom-form-item">
@@ -38,31 +38,64 @@
         class="error-message"
         *ngIf="species.invalid && (species.dirty || species.touched)"
       >
-        nemjo
+        The species is required!
       </div>
     </div>
-    <div class="custom-form-item">
-      <label for="dateOfBirth">Date of birth</label>
-      <input
-        [(ngModel)]="pet.dateOfBirth"
-        name="dateOfBirth"
-        type="date"
-        [disabled]="mode === 'View'"
-        #dateOfBirth="ngModel"
-        [class.is-invalid]="
-          dateOfBirth.invalid && (dateOfBirth.dirty || dateOfBirth.touched)
-        "
-        [class.is-valid]="dateOfBirth.valid"
-      />
+    <div class="dates">
+      <div class="custom-form-item">
+        <label for="dateOfBirth">Date of birth</label>
+        <div *ngIf="mode === 'View' && !pet.dateOfBirth">Unknown</div>
+        <div *ngIf="!(mode === 'View' && !pet.dateOfBirth)">
+          <input
+            [(ngModel)]="pet.dateOfBirth"
+            name="dateOfBirth"
+            type="date"
+            [disabled]="mode === 'View'"
+            #dateOfBirth="ngModel"
+            [class.is-invalid]="
+              dateOfBirth.invalid && (dateOfBirth.dirty || dateOfBirth.touched)
+            "
+            [class.is-valid]="dateOfBirth.valid"
+          />
+          <div
+            class="error-message"
+            *ngIf="
+              dateOfBirth.invalid && (dateOfBirth.dirty || dateOfBirth.touched)
+            "
+          >
+            Invalid format!
+          </div>
+        </div>
+      </div>
       <div
-        class="error-message"
-        *ngIf="
-          dateOfBirth.invalid && (dateOfBirth.dirty || dateOfBirth.touched)
-        "
+        class="custom-form-item"
+        *ngIf="!(mode === 'View' && !pet.dateOfDeath)"
       >
-        nemjo
+        <label for="dateOfDeath">Date of death</label>
+        <div *ngIf="mode === 'View' && !pet.dateOfDeath">Unknown</div>
+
+        <input
+          [(ngModel)]="pet.dateOfDeath"
+          name="dateOfDeath"
+          type="date"
+          [disabled]="mode === 'View'"
+          #dateOfDeath="ngModel"
+          [class.is-invalid]="
+            dateOfDeath.invalid && (dateOfDeath.dirty || dateOfDeath.touched)
+          "
+          [class.is-valid]="dateOfDeath.valid"
+        />
+        <div
+          class="error-message"
+          *ngIf="
+            dateOfDeath.invalid && (dateOfDeath.dirty || dateOfDeath.touched)
+          "
+        >
+          Invalid format!
+        </div>
       </div>
     </div>
+
     <div class="custom-form-item">
       <label for="note">Note</label>
       <textarea
@@ -79,14 +112,22 @@
         class="error-message"
         *ngIf="note.invalid && (note.dirty || note.touched)"
       >
-        nemjo
+        Invalid format!
       </div>
     </div>
-    <app-button
-      type="primary"
-      [label]="mode === 'Create' ? 'Add' : 'Save'"
-      [disabled]="!petForm.valid"
-      *ngIf="mode !== 'View'"
-    ></app-button>
+
+    <div class="form-action-buttons">
+      <app-button
+        type="primary"
+        [label]="mode === 'Create' ? 'Add' : 'Save'"
+        [disabled]="!petForm.valid"
+        *ngIf="mode !== 'View'"
+      ></app-button>
+      <app-button
+        type="secondary"
+        [label]="mode === 'View' ? 'Back' : 'Cancel'"
+        (onClick)="back()"
+      ></app-button>
+    </div>
   </form>
 </div>

@@ -22,28 +22,19 @@ export class PetEditPageComponent implements OnInit {
     let id = Number(this.route.snapshot.paramMap.get('id'));
     if (id) {
       this.loading = true;
-      this.petService
-        .getPetWithId(id)
-        .then((res) => {
-          if (res) {
-            this._pet = res;
-          }
-        })
-        .finally(() => {
-          this.loading = false;
-        });
+      this.petService.getPetWithId(id).subscribe((res) => {
+        if (res) {
+          this._pet = res;
+        }
+        this.loading = false;
+      });
     }
   }
 
   updatePet(pet: Pet) {
-    this.petService
-      .updatePet(pet)
-      .then(() => {
-        console.log('Success');
-        this.router.navigate(['/pets']);
-      })
-      .catch((e) => {
-        console.log('Error: ', e);
-      });
+    this.petService.updatePet(pet).subscribe(() => {
+      console.log('Success');
+      this.router.navigate(['/pets']);
+    });
   }
 }
