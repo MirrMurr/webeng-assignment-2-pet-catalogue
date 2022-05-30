@@ -13,6 +13,7 @@ export enum ButtonStyle {
 export class ButtonComponent implements OnInit {
   @Input() label!: string;
   @Input() type!: string; //ButtonStyle;
+  @Input() disabled!: string | boolean; //ButtonStyle;
 
   @Output() onClickEmitter = new EventEmitter();
 

@@ -1,5 +1,6 @@
 <div class="pet-form-container">
-  <form (ngSubmit)="onSubmit(petForm)" #petForm="ngForm">
+  <app-loading-indicator [show]="loading"></app-loading-indicator>
+  <form (ngSubmit)="onSubmit(petForm)" #petForm="ngForm" *ngIf="!loading">
     <div class="custom-form-item">
       <label for="name">Name</label>
       <input
@@ -12,13 +13,12 @@
         [class.is-invalid]="name.invalid && (name.dirty || name.touched)"
         [class.is-valid]="name.valid"
       />
-      <div class="error-message" *ngIf="name.invalid">nemjo</div>
-      <!-- <div
-        class="invalid-feedback"
-        *ngIf="name.invalid && name.errors.minlength"
+      <div
+        class="error-message"
+        *ngIf="name.invalid && (name.dirty || name.touched)"
       >
-        A recipe name is at least 3 characters long!
-      </div> -->
+        nemjo
+      </div>
     </div>
     <div class="custom-form-item">
       <label for="species">Species</label>
@@ -28,7 +28,18 @@
         type="text"
         [disabled]="mode === 'View'"
         required
+        #species="ngModel"
+        [class.is-invalid]="
+          species.invalid && (species.dirty || species.touched)
+        "
+        [class.is-valid]="species.valid"
       />
+      <div
+        class="error-message"
+        *ngIf="species.invalid && (species.dirty || species.touched)"
+      >
+        nemjo
+      </div>
     </div>
     <div class="custom-form-item">
       <label for="dateOfBirth">Date of birth</label>
@@ -37,7 +48,20 @@
         name="dateOfBirth"
         type="date"
         [disabled]="mode === 'View'"
+        #dateOfBirth="ngModel"
+        [class.is-invalid]="
+          dateOfBirth.invalid && (dateOfBirth.dirty || dateOfBirth.touched)
+        "
+        [class.is-valid]="dateOfBirth.valid"
       />
+      <div
+        class="error-message"
+        *ngIf="
+          dateOfBirth.invalid && (dateOfBirth.dirty || dateOfBirth.touched)
+        "
+      >
+        nemjo
+      </div>
     </div>
     <div class="custom-form-item">
       <label for="note">Note</label>
@@ -47,8 +71,22 @@
         cols="30"
         rows="10"
         [disabled]="mode === 'View'"
+        #note="ngModel"
+        [class.is-invalid]="note.invalid && (note.dirty || note.touched)"
+        [class.is-valid]="note.valid"
       ></textarea>
+      <div
+        class="error-message"
+        *ngIf="note.invalid && (note.dirty || note.touched)"
+      >
+        nemjo
+      </div>
     </div>
-    <app-button type="primary" label="Save"></app-button>
+    <app-button
+      type="primary"
+      [label]="mode === 'Create' ? 'Add' : 'Save'"
+      [disabled]="!petForm.valid"
+      *ngIf="mode !== 'View'"
+    ></app-button>
   </form>
 </div>

@@ -20,6 +20,8 @@ import { PetDetailsPageComponent } from './pages/pet-details-page/pet-details-pa
 import { PetEditPageComponent } from './pages/pet-edit-page/pet-edit-page.component';
 import { PetCreatePageComponent } from './pages/pet-create-page/pet-create-page.component';
 import { FormsModule } from '@angular/forms';
+import { LoadingIndicatorComponent } from './components/loading-indicator/loading-indicator.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -39,8 +41,15 @@ import { FormsModule } from '@angular/forms';
     PetDetailsPageComponent,
     PetEditPageComponent,
     PetCreatePageComponent,
+    LoadingIndicatorComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, MatTableModule, FormsModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    MatTableModule,
+    FormsModule,
+    HttpClientModule,
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })

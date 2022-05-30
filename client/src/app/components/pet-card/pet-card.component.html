@@ -6,7 +6,7 @@
     <div>
       <i>{{ pet.note }}</i>
     </div>
-    <div>Born: {{ pet.dateOfBirth }}</div>
+    <div>Born: {{ pet.dateOfBirth || "unknown" }}</div>
     <div *ngIf="!!pet.dateOfDeath">Passed away: {{ pet.dateOfDeath }}</div>
   </div>
   <div class="pet-action-buttons-container">

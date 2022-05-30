@@ -35,14 +35,14 @@ export const PETS: Pet[] = [
     id: 5,
     name: 'Pityuka',
     species: 'Cat',
-    dateOfBirth: 'unknown',
+    dateOfBirth: '',
     note: 'The cat reincarnation of Buddha.',
   },
   {
     id: 6,
     name: 'Szotyika',
     species: 'Cat',
-    dateOfBirth: 'unknown',
+    dateOfBirth: '',
     note: "She's quite untrustful at first, but with a little treat, she softens up.",
   },
 ];

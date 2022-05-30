@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\IssueController;
+use App\Http\Controllers\PetController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,4 +18,4 @@ use Illuminate\Support\Facades\Route;
 //     return $request->user();
 // });
 
-Route::resource('issues', IssueController::class)->except([ 'edit', 'create' ]);;
+Route::resource('pets', PetController::class)->except([ 'edit', 'create' ]);;

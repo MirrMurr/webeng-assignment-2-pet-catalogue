@@ -1,3 +1,9 @@
 <div class="pet-edit-page-container">
-  <app-pet-form [mode]="'Edit'" [pet]="_pet"></app-pet-form>
+  <h1 class="page-title">Edit pet details</h1>
+  <app-pet-form
+    [mode]="'Edit'"
+    [pet]="_pet"
+    [loading]="loading"
+    (onSubmitPet)="updatePet($event)"
+  ></app-pet-form>
 </div>

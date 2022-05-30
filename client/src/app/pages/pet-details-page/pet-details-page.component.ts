@@ -9,7 +9,8 @@ import { PetService } from 'src/app/services/pet.service';
   styleUrls: ['./pet-details-page.component.scss'],
 })
 export class PetDetailsPageComponent implements OnInit {
-  public _pet: Pet;
+  _pet: Pet;
+  loading: boolean = true;
 
   constructor(
     private petService: PetService,
@@ -18,13 +19,19 @@ export class PetDetailsPageComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    const pets = this.petService.getAllPets();
     let id = Number(this.route.snapshot.paramMap.get('id'));
     if (id) {
-      const pet = this.petService.getPetWithId(id);
-      if (pet) {
-        this._pet = pet;
-      }
+      this.loading = true;
+      this.petService
+        .getPetWithId(id)
+        .then((res) => {
+          if (res) {
+            this._pet = { ...res };
+          }
+        })
+        .finally(() => {
+          this.loading = false;
+        });
     }
   }
 }
