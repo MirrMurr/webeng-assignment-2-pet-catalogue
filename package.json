@@ -6,7 +6,8 @@
     "postinstall": "(cd client && npm install); (cd server && composer install)",
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "concurrently 'npm start --prefix client' 'cd server && php artisan serve --port=8080'",
-    "start": "npm run dev"
+    "start": "npm run dev",
+    "clean": "rm -R ./node_modules client/node_modules server/vendor/"
   },
   "keywords": [],
   "author": "",
